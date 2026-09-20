@@ -72,8 +72,11 @@ display:none}
 
   <div class="voice-actions">
     <button id="voiceTry">▶ Try voice</button>
+    <button id="voiceDefault">使用系統預設</button>
     <button id="voiceClose">Done</button>
   </div>
+  <div id="voiceStatus" class="voice-note" role="status" aria-live="polite">語音測試版 2：按 Try voice 開始測試。</div>
+  <div class="voice-note">若顯示朗讀中但聽不到，請關閉 iPhone 靜音、調高音量，並確認藍牙輸出。</div>
   <div class="voice-note">This list comes from voices available in your current browser/device. Your choice is saved on this device.</div>
 </div>
 
@@ -234,16 +237,68 @@ function selectedVoice(){
   const i=Number(voiceSelect.value);
   return Number.isFinite(i) ? englishVoices[i] : null;
 }
-function speak(t,kind='story'){
-  if(!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
+// Keep the current utterance alive and ignore events from replaced playback.
+let activeUtterance=null;
+let voiceStartTimer=null;
+function voiceStatus(message){
+  document.getElementById('voiceStatus').textContent=message;
+}
+function speak(t,kind='story',useDefault=false){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    voiceStatus('此瀏覽器無法使用語音朗讀。');
+    document.getElementById('voicePanel').classList.add('open');
+    return;
+  }
+  clearTimeout(voiceStartTimer);
+  activeUtterance=null;
+  const synth=window.speechSynthesis;
+  if(synth.speaking || synth.pending) synth.cancel();
+  if(synth.paused) synth.resume();
+  // Refresh device voices on the user gesture if the initial list was empty.
+  if(!englishVoices.length) loadVoices();
   const u=new SpeechSynthesisUtterance(t);
-  const v=selectedVoice();
+  activeUtterance=u;
+  const v=useDefault ? null : selectedVoice();
   u.lang=v?.lang || 'en-US';
   if(v) u.voice=v;
   u.rate=kind==='word' ? Number(wordRate.value) : Number(storyRate.value);
   u.pitch=1.0;
-  speechSynthesis.speak(u);
+  u.volume=1.0;
+  voiceStatus('正在啟動朗讀…');
+  u.onstart=()=>{
+    if(activeUtterance!==u) return;
+    clearTimeout(voiceStartTimer);
+    voiceStatus('朗讀中。若沒有聲音，請確認 iPhone 靜音、音量與藍牙輸出。');
+  };
+  u.onend=()=>{
+    if(activeUtterance!==u) return;
+    clearTimeout(voiceStartTimer);
+    activeUtterance=null;
+    voiceStatus('朗讀已結束。');
+  };
+  u.onerror=event=>{
+    if(activeUtterance!==u) return;
+    clearTimeout(voiceStartTimer);
+    activeUtterance=null;
+    const reasons={
+      'not-allowed':'手機未允許啟動朗讀，請再直接按 Try voice。',
+      'voice-unavailable':'這個音色無法使用，請按「使用系統預設」。',
+      'language-unavailable':'手機沒有可用的英文朗讀語音。',
+      'audio-busy':'聲音輸出正被占用，請停止其他播放後重試。',
+      'audio-hardware':'無法使用聲音輸出，請檢查音量與藍牙。',
+      'network':'語音需要網路，請確認連線或改用裝置音色。'
+    };
+    voiceStatus(reasons[event.error] || '朗讀失敗：'+(event.error || 'unknown')+'。請試用系統預設。');
+    document.getElementById('voicePanel').classList.add('open');
+  };
+  voiceStartTimer=setTimeout(()=>{
+    if(activeUtterance!==u) return;
+    voiceStatus('手機尚未回報開始朗讀。請按「使用系統預設」重試，或將此訊息回報。');
+    document.getElementById('voicePanel').classList.add('open');
+  },6000);
+  // Stay inside the tap handler: iOS requires a user gesture to start speech.
+  try{ synth.speak(u); }
+  catch(error){ u.onerror({error:error.name || 'unknown'}); }
 }
 document.querySelectorAll('.listen[data-scene]').forEach(b=>b.onclick=()=>speak(scenes[+b.dataset.scene],'story'));
 document.getElementById('wordListen').onclick=()=>speak(currentWord,'word');
@@ -251,6 +306,7 @@ document.getElementById('wordListen').onclick=()=>speak(currentWord,'word');
 const voicePanel=document.getElementById('voicePanel');
 document.getElementById('voiceFab').onclick=()=>voicePanel.classList.toggle('open');
 document.getElementById('voiceClose').onclick=()=>voicePanel.classList.remove('open');
+document.getElementById('voiceDefault').onclick=()=>speak('Hello. This is the English story voice test.','story',true);
 document.getElementById('voiceTry').onclick=()=>speak("The hallway was quiet, but Mia's phone suddenly buzzed.",'story');
 
 function saveVoiceSettings(){
