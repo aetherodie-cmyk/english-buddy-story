@@ -7,6 +7,7 @@
 <style>
 :root{--ink:#172033;--muted:#667085;--paper:#fbfaf6;--card:#fff;--accent:#8c5b48;--accent2:#e8d9cd;--night:#182235;--line:#e8e2da}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
+[hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;line-height:1.72}
 .hero{min-height:92vh;background:linear-gradient(160deg,#403a4b,#182235 70%);display:flex;align-items:flex-end;color:white;padding:28px 20px 46px}
 .hero-inner{max-width:720px;margin:auto;width:100%} .tag{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
@@ -30,10 +31,16 @@ h2{font-family:Georgia,serif;font-size:2rem;line-height:1.1;margin:.45rem 0 1rem
 .options{display:grid;gap:10px;margin-top:18px} .option{text-align:left;background:white;border:1px solid #d9cec4;border-radius:16px;padding:15px 16px;font-weight:700;color:var(--ink);font-size:1rem}
 .option.selected{outline:3px solid #c7aa99;background:#fff9f4} .result{display:none;margin-top:18px;padding:16px;border-radius:16px;background:#fff}
 .footer-note{text-align:center;color:var(--muted);padding:24px 8px 60px}
+.episode-two{padding-top:30px}.episode-heading{padding:18px 4px 8px}.episode-heading h2{font-size:2.5rem;margin:.4rem 0}.episode-heading p{color:var(--muted)}
+.path-card{margin:24px 0 36px;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 10px 34px rgba(35,30,25,.08)}
+.path-image-wrap{background:var(--night);display:flex;align-items:flex-start}.path-image-wrap img{display:block;width:100%;height:auto;aspect-ratio:500/346;object-fit:contain}
+.path-copy{padding:24px 22px 30px}.path-prose p{margin:0 0 1.1em}.path-prose p:last-child{margin-bottom:0}
+.episode-discovery{padding:0}.episode-discovery summary{padding:22px;cursor:pointer;font-weight:800}.discovery-inner{padding:0 22px 24px}.discovery-inner h3{margin-top:0}
+.explore{margin:42px 0 20px;padding:26px 22px;background:#f1ebe4;border-radius:24px}.explore h3{font-family:Georgia,serif;font-size:1.8rem;margin:.1rem 0 .8rem}.explore .option{cursor:pointer}
 .sheet{position:fixed;left:0;right:0;bottom:-420px;z-index:40;background:white;border-radius:24px 24px 0 0;padding:24px 22px 34px;box-shadow:0 -12px 40px rgba(0,0,0,.18);transition:.28s;max-width:760px;margin:auto}
 .sheet.open{bottom:0} .sheet .close{float:right;border:0;background:#eee;width:32px;height:32px;border-radius:50%} .sheet-word{font-family:Georgia,serif;font-size:2rem;margin:.2rem 0} .level{display:inline-block;background:#f2e2d6;color:#764b38;border-radius:999px;padding:3px 9px;font-size:.75rem;font-weight:800}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:30} .overlay.open{display:block}
-@media(min-width:760px){body{background:#f4f0e9} main{padding-left:0;padding-right:0} .scene{display:grid;grid-template-columns:1fr 1fr} .scene-copy{padding:38px 34px}}
+@media(min-width:760px){body{background:#f4f0e9} main{padding-left:0;padding-right:0} .scene,.path-card{display:grid;grid-template-columns:1fr 1fr} .scene-copy,.path-copy{padding:38px 34px}}
 
 .voice-fab{position:fixed;right:16px;top:18px;z-index:50;border:1px solid rgba(255,255,255,.55);
 background:rgba(24,34,53,.82);backdrop-filter:blur(10px);color:#fff;border-radius:999px;
@@ -170,7 +177,126 @@ display:none}
     </div>
     <div class="result" id="result"></div>
   </section>
-  <div class="footer-note">Episode 02 · Coming soon<br><small>先看她會不會想知道接下來發生什麼。</small></div>
+  <!-- EPISODE 02 START -->
+<section class="episode-two" id="episode-2" hidden>
+  <div class="episode-heading"><div class="kicker">THE STORY CONTINUES</div><h2>Episode 02</h2><p id="path-intro"></p></div>
+  <article class="path-card" data-path="A" hidden>
+  <div class="path-image-wrap"><img src="assets/path-a-follow-leo.jpg" alt="Mia watches Leo and a stranger outside the science building" width="500" height="346" loading="lazy"></div>
+  <div class="path-copy">
+    <div class="kicker">EPISODE 02 · PATH A</div>
+    <h2>Follow Leo</h2>
+    <div class="path-prose"><p>Mia hesitated for only a second. Then she followed Leo.</p>
+<p>He left the school through a side door and crossed the playground. Mia stayed far enough behind him to avoid being seen.</p>
+<p>Near the old science building, Leo slowed down. Mia stopped behind a wall and <button class="word" data-word="observe">observed</button> him carefully.</p>
+<p>Another person was waiting under the roof.</p>
+<p>“Did anything happen in Room 403 today?” the stranger asked.</p>
+<p>Leo shook his head. “Not yet.”</p>
+<p>The answer did nothing to reduce Mia&#x27;s <button class="word" data-word="anxiety">anxiety</button>.</p>
+<p>The stranger handed Leo a small envelope.</p>
+<p>“This should <button class="word" data-word="prevent">prevent</button> anyone from finding out too early.”</p>
+<p>“Finding out what?” Leo asked.</p>
+<p>The stranger did not answer.</p>
+<p>Mia tried to <button class="word" data-word="identify">identify</button> the person, but the hood covered most of the stranger&#x27;s face. The only clear detail she could see was a silver key hanging from the person&#x27;s bag.</p>
+<p>Then her phone buzzed.</p>
+<p>“Look at the ground.”</p>
+<p>When Mia looked up again, the stranger was already walking away.</p>
+<p>Leo left a moment later.</p>
+<p>Mia waited, then stepped out from behind the wall. A small piece of paper lay near the place where they had been standing.</p>
+<p>Was it an accident, or had someone left it there for a <button class="word" data-word="specific">specific</button> reason?</p>
+<p>She picked it up.</p>
+<p><strong>17:30 — Science Building — Locker 26</strong></p>
+<p>Mia read it twice.</p>
+<p>The message did not <button class="word" data-word="reveal">reveal</button> the truth, but it gave her something real to follow.</p>
+<p>Then she noticed a small mark beside the number 26.</p>
+<p>It looked like a triangle.</p>
+<p>Maybe it was another <button class="word" data-word="indication">indication</button> that this was more than a joke.</p>
+<p>Whatever was happening at school was becoming more <button class="word" data-word="mysterious">mysterious</button> by the minute.</p></div>
+    <button class="listen" data-episode2-listen="A">🔊 Listen to this path</button>
+  </div>
+</article>
+<article class="path-card" data-path="B" hidden>
+  <div class="path-image-wrap"><img src="assets/path-b-room-403.jpg" alt="Mia finds a photograph in Room 403" width="500" height="346" loading="lazy"></div>
+  <div class="path-copy">
+    <div class="kicker">EPISODE 02 · PATH B</div>
+    <h2>Room 403</h2>
+    <div class="path-prose"><p>Mia watched Leo disappear down the stairs. Then she turned toward Room 403.</p>
+<p>Although entering alone made her nervous, she wanted to <button class="word" data-word="determine">determine</button> why everyone seemed afraid of this room.</p>
+<p>She pushed the door.</p>
+<p>It opened.</p>
+<p>At first, the classroom looked normal: old desks, a whiteboard, several boxes and a broken computer.</p>
+<p>Mia stood still and <button class="word" data-word="observe">observed</button> the room.</p>
+<p>One desk was much cleaner than the others.</p>
+<p>That simple <button class="word" data-word="observation">observation</button> made her curious.</p>
+<p>Inside the desk was a small envelope.</p>
+<p>Mia hesitated, then opened it.</p>
+<p>There was a photograph of the science building. On the back, someone had written:</p>
+<p><strong>17:30 — Locker 26</strong></p>
+<p>There was also a small triangle beside the number.</p>
+<p>Mia tried to <button class="word" data-word="identify">identify</button> the place shown in the photograph. One window was circled in red.</p>
+<p>Why that <button class="word" data-word="specific">specific</button> window?</p>
+<p>Suddenly, footsteps approached Room 403.</p>
+<p>Mia moved behind the door.</p>
+<p>Her phone buzzed.</p>
+<p>“Don&#x27;t let them see the photograph.”</p>
+<p>The message increased her <button class="word" data-word="anxiety">anxiety</button>. Whoever was texting her seemed to know exactly what she was doing.</p>
+<p>Was the sender trying to <button class="word" data-word="prevent">prevent</button> someone from discovering the photograph?</p>
+<p>Or was the photograph meant to <button class="word" data-word="reveal">reveal</button> something?</p>
+<p>The door began to open.</p>
+<p>“Is anyone in there?”</p>
+<p>Mia recognized the voice.</p>
+<p>It wasn&#x27;t Leo.</p>
+<p>It was the principal.</p>
+<p>That was the clearest <button class="word" data-word="indication">indication</button> yet that Room 403 mattered.</p></div>
+    <button class="listen" data-episode2-listen="B">🔊 Listen to this path</button>
+  </div>
+</article>
+<article class="path-card" data-path="C" hidden>
+  <div class="path-image-wrap"><img src="assets/path-c-tell-emma.jpg" alt="Mia and Emma compare the messages on their phones" width="500" height="346" loading="lazy"></div>
+  <div class="path-copy">
+    <div class="kicker">EPISODE 02 · PATH C</div>
+    <h2>Tell Emma</h2>
+    <div class="path-prose"><p>Mia decided not to follow Leo and not to enter Room 403 alone.</p>
+<p>Instead, she called Emma, her best friend.</p>
+<p>Ten minutes later, Emma returned to school. Mia showed her the messages.</p>
+<p>Emma&#x27;s reaction surprised her.</p>
+<p>“I got one too,” Emma said.</p>
+<p>She showed Mia a message from that morning:</p>
+<p>“If anything unusual happens today, stay away from Room 403.”</p>
+<p>Mia felt a sudden wave of <button class="word" data-word="anxiety">anxiety</button>.</p>
+<p>They compared the messages and <button class="word" data-word="observe">observed</button> several differences. Mia&#x27;s messages mentioned Leo, while Emma&#x27;s warned her to stay away.</p>
+<p>“That can&#x27;t be random,” Mia said.</p>
+<p>Emma nodded. “Maybe they were sent for <button class="word" data-word="specific">specific</button> reasons.”</p>
+<p>Another message on Emma&#x27;s phone read:</p>
+<p><strong>17:30 — Science Building — Locker 26</strong></p>
+<p>A small triangle appeared beside the number.</p>
+<p>Neither girl could <button class="word" data-word="identify">identify</button> what the symbol meant.</p>
+<p>“Maybe it&#x27;s an <button class="word" data-word="indication">indication</button> of where to look,” Mia said.</p>
+<p>“Or a warning,” Emma replied.</p>
+<p>They needed more information to <button class="word" data-word="determine">determine</button> which idea made sense.</p>
+<p>Emma wanted to tell a teacher, but Mia wasn&#x27;t sure. What if the messages were meant to <button class="word" data-word="prevent">prevent</button> them from trusting the wrong person?</p>
+<p>Then Emma pointed toward the fourth floor.</p>
+<p>Someone was standing at the window of Room 403.</p>
+<p>The figure disappeared a second later.</p>
+<p>“That was <button class="word" data-word="mysterious">mysterious</button>,” Emma whispered.</p>
+<p>Mia stared at the empty window.</p>
+<p>The messages still did not <button class="word" data-word="reveal">reveal</button> who was behind them.</p>
+<p>But now both girls knew one thing:</p>
+<p>At 17:30, something connected to Locker 26 was going to happen.</p></div>
+    <button class="listen" data-episode2-listen="C">🔊 Listen to this path</button>
+  </div>
+</article>
+  <details class="discovery episode-discovery">
+    <summary>Language Discovery · 展開學習線索</summary>
+    <div class="discovery-inner">
+      <h3>Look a little closer</h3>
+      <div class="grammar"><strong>✦ Grammar · Although A, B</strong><p>Although entering alone made her nervous, she wanted to determine why everyone seemed afraid of this room.</p><p>although 引出讓步：雖然一件事成立，另一件事仍然發生。</p></div>
+      <div class="grammar"><strong>✦ Writing · Show, don't just tell</strong><p>Mia was nervous. → The answer did nothing to reduce Mia's anxiety.</p><p>用動作或感受讓讀者看見情緒。</p></div>
+      <div class="grammar"><strong>✦ Reading · Infer from clues</strong><p>人物的行動、訊息與三角形符號，讓你推測他們可能知道什麼？可從故事找到支持自己想法的線索。</p></div>
+    </div>
+  </details>
+  <nav class="explore" aria-label="Explore another path"><div class="kicker">CURIOUS ABOUT ANOTHER CHOICE?</div><h3>Explore another path</h3><div class="options" id="explore-options"></div></nav>
+</section>
+<!-- EPISODE 02 END -->
 </main>
 
 <div class="overlay" id="overlay"></div>
@@ -180,20 +306,24 @@ display:none}
   <div class="sheet-word" id="sheetWord"></div>
   <div id="sheetZh"></div>
   <p style="color:#667085" id="sheetExample"></p>
+  <p style="color:#667085" id="sheetExplanation"></p>
   <button class="listen" id="wordListen">🔊 Listen</button>
 </div>
 
 <script>
 const vocab={"recognize": {"level": "L3", "zh": "認出、辨認", "example": "She didn't recognize the number."}, "hesitate": {"level": "L3", "zh": "猶豫", "example": "Now she began to hesitate."}, "convince": {"level": "L4", "zh": "說服；使相信", "example": "She tried to convince herself that it was just a joke."}, "behavior": {"level": "L4", "zh": "行為、舉止", "example": "His behavior seemed suspicious."}, "suspicious": {"level": "L4", "zh": "可疑的", "example": "His behavior seemed suspicious."}, "suspect": {"level": "L3", "zh": "懷疑", "example": "Mia began to suspect that he knew something."}, "evidence": {"level": "L4", "zh": "證據", "example": "But she had no evidence."}, "trust": {"level": "L3", "zh": "信任", "example": "Just trust me."}, "risk": {"level": "L3", "zh": "風險", "example": "Following him could be a risk."}, "clue": {"level": "L3", "zh": "線索", "example": "There was now one clear clue."}, "investigate": {"level": "L3", "zh": "調查", "example": "Maybe she should investigate it herself."}, "inspect": {"level": "L3", "zh": "檢查、視察", "example": "The principal was going to inspect every classroom."}, "mystery": {"level": "L3", "zh": "謎；神秘事件", "example": "It felt like a mystery."}};
+const episode2Vocab={"reveal":{"level":"L3","zh":"揭露；顯示原本不知道的事","example":"The message did not reveal the truth, but it gave her something real to follow.","explanation":"使原本隱藏或不知道的資訊被知道"},"specific":{"level":"L3","zh":"特定的；明確的","example":"Was it an accident, or had someone left it there for a specific reason?","explanation":"指某個明確、特定的人事物，而不是一般性的"},"prevent":{"level":"L3","zh":"阻止；防止","example":"This should prevent anyone from finding out too early.","explanation":"讓某件事不要發生；常見用法：prevent + 人/事 + from + V-ing"},"determine":{"level":"L3","zh":"確定；判定","example":"Although entering alone made her nervous, she wanted to determine why everyone seemed afraid of this room.","explanation":"經過思考或查證後弄清楚、確定"},"observe":{"level":"L3","zh":"觀察；注意看","example":"Mia stopped behind a wall and observed him carefully.","explanation":"仔細看或注意某人／某事；故事中的 observed 對應 lemma observe"},"anxiety":{"level":"L3","zh":"焦慮；不安","example":"The answer did nothing to reduce Mia's anxiety.","explanation":"對可能發生的事情感到擔心、不安"},"identify":{"level":"L4","zh":"辨認；確認身分或特徵","example":"Mia tried to identify the person, but the hood covered most of the stranger's face.","explanation":"根據特徵辨認出某人或某物是誰／是什麼"},"indication":{"level":"L4","zh":"跡象；指示","example":"Maybe it was another indication that this was more than a joke.","explanation":"顯示某件事可能是真的或正在發生的跡象"},"observation":{"level":"L4","zh":"觀察；觀察所得","example":"That simple observation made her curious.","explanation":"觀察這個動作，或觀察後得到的發現"},"mysterious":{"level":"L4","zh":"神祕的；難以解釋的","example":"Whatever was happening at school was becoming more mysterious by the minute.","explanation":"讓人無法立即理解、知道原因或真相的"}};
 const scenes=["It was almost five o'clock when Mia finally left the school library. Most students had already gone home, and the rain made the hallway feel strangely empty.\n\nAs Mia walked toward the stairs, her phone suddenly buzzed.\n\n“Don't tell anyone what happened in Room 403.”\n\nMia stopped. She didn't recognize the number. She was about to ignore it when another message appeared:\n\n“You know what I mean.”\n\nNow she began to hesitate.", "Room 403 was an old classroom on the fourth floor. Students rarely used it, but Mia remembered seeing two teachers there that afternoon.\n\nShe tried to convince herself that it was just a joke. Then she heard footsteps upstairs.\n\nLeo, a student from her class, appeared at the end of the hallway.\n\n“Why are you still here?” he asked.\n\nLeo looked back toward the stairs. His behavior seemed suspicious. Mia began to suspect that he knew something about Room 403.\n\nBut she had no evidence.", "“You should go home,” Leo said quietly.\n\n“Why?”\n\nLeo looked at her for a few seconds. “Just trust me.”\n\nBefore Mia could ask another question, he walked away.\n\nHer phone buzzed again.\n\n“He knows the truth.”\n\nWas Leo trying to protect her, or had he sent the messages? Following him could be a risk, but there was now one clear clue: Room 403.\n\nMaybe she should investigate it herself.", "Then Mia remembered something.\n\nTomorrow morning, the principal was going to inspect every classroom on the fourth floor.\n\nWhy?\n\nMia looked toward the stairs.\n\nFor the first time, this no longer felt like a joke. It felt like a mystery.\n\nAnd somehow, she had become part of it."];
 const sheet=document.getElementById('sheet'), overlay=document.getElementById('overlay');
 let currentWord='';
 function openWord(w){
-  currentWord=w; const v=vocab[w];
+  currentWord=w; const v=vocab[w] || episode2Vocab[w];
+  if(!v) return;
   document.getElementById('sheetWord').textContent=w;
   document.getElementById('sheetLevel').textContent=v.level;
   document.getElementById('sheetZh').textContent=v.zh;
   document.getElementById('sheetExample').textContent=v.example;
+  document.getElementById('sheetExplanation').textContent=v.explanation || '';
   sheet.classList.add('open'); overlay.classList.add('open');
 }
 function closeSheet(){sheet.classList.remove('open');overlay.classList.remove('open')}
@@ -328,23 +458,35 @@ function updateRates(){
 storyRate.oninput=updateRates; wordRate.oninput=updateRates;
 voiceSelect.onchange=saveVoiceSettings;
 updateRates();
-document.querySelectorAll('.option').forEach(btn=>btn.onclick=()=>{
-  document.querySelectorAll('.option').forEach(x=>x.classList.remove('selected')); btn.classList.add('selected');
-  const r=document.getElementById('result'); r.style.display='block';
-  const texts={
-    A:"You chose A. Mia follows Leo into the rain… but someone else is following her.",
-    B:"You chose B. Mia heads for Room 403 alone. The door is not as locked as she expected.",
-    C:"You chose C. Mia tells her best friend. Two people now know the secret — and that may be one person too many."
-  };
-  r.textContent=texts[btn.dataset.choice] + "  Episode 02 will begin here.";
-  try{localStorage.setItem("episode01_choice",btn.dataset.choice)}catch{}
+const pathNames={A:'Follow Leo',B:'Room 403',C:'Tell Emma'};
+const episodeTwo=document.getElementById('episode-2');
+function showPath(choice,scrollToPath=true){
+  if(!pathNames[choice]) return;
+  document.querySelectorAll('.choice .option').forEach(button=>button.classList.toggle('selected',button.dataset.choice===choice));
+  document.querySelectorAll('.path-card').forEach(card=>card.hidden=card.dataset.path!==choice);
+  document.getElementById('path-intro').textContent='Your choice: '+pathNames[choice]+'. Follow Mia into the next part of the story.';
+  const explore=document.getElementById('explore-options');
+  explore.replaceChildren();
+  for(const other of Object.keys(pathNames).filter(path=>path!==choice)){
+    const button=document.createElement('button');
+    button.className='option';button.type='button';button.textContent=other+' · '+pathNames[other];
+    button.onclick=()=>showPath(other);
+    explore.append(button);
+  }
+  episodeTwo.hidden=false;
+  document.getElementById('result').style.display='none';
+  try{localStorage.setItem('episode01_choice',choice)}catch{}
+  if(scrollToPath) episodeTwo.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.querySelectorAll('.choice .option').forEach(button=>button.onclick=()=>showPath(button.dataset.choice));
+document.querySelectorAll('[data-episode2-listen]').forEach(button=>button.onclick=()=>{
+  const card=button.closest('.path-card');
+  const story=[...card.querySelectorAll('.path-prose p')].map(p=>p.textContent).join('\n\n');
+  speak(story,'story');
 });
-// Restore only a recognized choice; storage may be unavailable in restricted browsers.
 try{
   const savedChoice=localStorage.getItem('episode01_choice');
-  if(['A','B','C'].includes(savedChoice)){
-    document.querySelector('.option[data-choice="'+savedChoice+'"]').click();
-  }
+  if(pathNames[savedChoice]) showPath(savedChoice,false);
 }catch{}
 addEventListener('scroll',()=>{
  const h=document.documentElement.scrollHeight-innerHeight;

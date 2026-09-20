@@ -2,9 +2,9 @@
 
 An experimental learning project for mobile-first, story-based vocabulary learning.
 
-**Episode 01: The Wrong Message**
+**Episode 01: The Wrong Message → Episode 02: three paths**
 
-Read four story scenes, tap vocabulary cards, listen to scenes or words, and choose A/B/C to explore a possible continuation.
+Read four opening scenes, choose A/B/C to enter the matching Episode 02 story, and explore the other paths afterward. Tap vocabulary for help and listen to scenes, paths, or words.
 
 ## Privacy
 
@@ -14,7 +14,7 @@ No analytics, login, database, backend, API keys, or Learning Record integration
 
 ## Publish
 
-GitHub Pages serves `index.html` directly from the root of `main`. The storyboard image is in `assets/`; styles and scripts are embedded; no build or framework is required.
+GitHub Pages serves `index.html` directly from the root of `main`. Artwork is in `assets/`; styles and scripts are embedded; no build or framework is required. The frozen source pack is kept in `content/story-pack-v2.1/`. After changing Episode 02 story or vocabulary sources, run `python3 scripts/build_episode2.py` to refresh the HTML.
 
 Site: https://aetherodie-cmyk.github.io/english-buddy-story/
 
@@ -37,3 +37,7 @@ See [Story Visual Guide](docs/STORY_VISUAL_GUIDE.md) for Mia / Leo character ref
 Decision: illustrations provide setting, characters, atmosphere, and visual memory anchors; they must not duplicate teaching text. Replaced the old images with one text-free 2×2 storyboard, displayed as four complete panels using CSS. The hero now uses a plain gradient. Story wording is unchanged. Restored device-only A/B/C choice persistence as requested.
 
 Validation: mobile widths 320–430px and desktop widths 768/1280px passed panel aspect-ratio and overflow checks. All four panel positions, the PNG load, 13 vocabulary cards, voice controls, and A/B/C persistence passed browser smoke tests. Story prose and narration were compared against the previous version and are unchanged. Physical iPhone audio remains a separate verification.
+
+### Episode 02 update — 2026-09-20
+
+Added the frozen v2.1 A/B/C paths and three illustrations. Choosing a path opens its story immediately; the other two remain available at the end. Added ten verified L3/L4 vocabulary cards using the supplied lemma mapping, including `observed` → `observe`. Existing voice settings and device-only choice storage remain in use. Language Discovery follows the Episode 02 story in a collapsed section.

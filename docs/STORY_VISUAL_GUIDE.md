@@ -25,6 +25,12 @@ This image is the visual reference for future episodes; reuse the reference imag
 - Dark hooded jacket, dark trousers, and a black backpack.
 - Preserve these visible clothes; do not invent a new school crest or uniform identity.
 
+### Emma
+
+- Teenage schoolgirl with warm brown hair, tied up or loosely gathered.
+- Slightly lighter outer layer than Mia, with the same school-age appearance and cinematic anime style.
+- More outwardly expressive than Mia, while remaining part of the same visual world.
+
 ## Style, light, and color
 
 Cinematic anime illustration with detailed hair, expressive eyes, natural proportions, and carefully shaded school interiors. Avoid chibi proportions or switching to a different rendering style between episodes.
@@ -49,6 +55,10 @@ The supplied 1536×1024 image is a 2×2 storyboard, in reading order:
 Each panel has a 3:2 aspect ratio. The site uses one unchanged PNG, with CSS `background-size: 200% 200%` and the corresponding corner position. This isolates each panel without cropping its contents. Keep the storyboard dividers; do not crop faces to fill a taller card.
 
 On mobile, panel width is 100% of the card. On desktop, keep the existing two-column story cards and show the complete panel with neutral space as needed. Do not stretch the art or use `object-fit: cover` to fill a mismatched aspect ratio.
+
+## Episode 02 path artwork
+
+The three supplied images in `assets/` show Follow Leo, Room 403, and Tell Emma. Render the full image for each path and preserve faces, phones, the photograph, and other story clues. Use the same Mia and Leo references above; the supplied Tell Emma image establishes Emma's first visual reference.
 
 ## Before publishing
 
